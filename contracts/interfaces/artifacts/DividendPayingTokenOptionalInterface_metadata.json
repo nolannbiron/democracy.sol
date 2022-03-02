@@ -1,0 +1,142 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "accumulativeDividendOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "withdrawableDividendOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "withdrawnDividendOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Roger Wu (https://github.com/roger-wu)",
+			"details": "OPTIONAL functions for a dividend-paying token contract.",
+			"kind": "dev",
+			"methods": {
+				"accumulativeDividendOf(address)": {
+					"details": "accumulativeDividendOf(_owner) = withdrawableDividendOf(_owner) + withdrawnDividendOf(_owner)",
+					"params": {
+						"_owner": "The address of a token holder."
+					},
+					"returns": {
+						"_0": "The amount of dividend in wei that `_owner` has earned in total."
+					}
+				},
+				"withdrawableDividendOf(address)": {
+					"params": {
+						"_owner": "The address of a token holder."
+					},
+					"returns": {
+						"_0": "The amount of dividend in wei that `_owner` can withdraw."
+					}
+				},
+				"withdrawnDividendOf(address)": {
+					"params": {
+						"_owner": "The address of a token holder."
+					},
+					"returns": {
+						"_0": "The amount of dividend in wei that `_owner` has withdrawn."
+					}
+				}
+			},
+			"title": "Dividend-Paying Token Optional Interface",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"accumulativeDividendOf(address)": {
+					"notice": "View the amount of dividend in wei that an address has earned in total."
+				},
+				"withdrawableDividendOf(address)": {
+					"notice": "View the amount of dividend in wei that an address can withdraw."
+				},
+				"withdrawnDividendOf(address)": {
+					"notice": "View the amount of dividend in wei that an address has withdrawn."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/interfaces/DividendPayingTokenOptionalInterface.sol": "DividendPayingTokenOptionalInterface"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/DividendPayingTokenOptionalInterface.sol": {
+			"keccak256": "0xd16b16dd68658f345fea42bb583dc7ab8e1cec3e578dbda08673980e769b8aa3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d248fc44a0e1a7e8c18045a7fa3fdf004312de8b1ff29b0dd3425c98ef6e26a5",
+				"dweb:/ipfs/QmeE2BihADxzTGzyFaNyPYrmxUa6sXQfBxHG8S3ZxjApWB"
+			]
+		}
+	},
+	"version": 1
+}

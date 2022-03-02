@@ -1,0 +1,599 @@
+{
+	"compiler": {
+		"version": "0.8.10+commit.fc410830"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "leader",
+						"type": "address"
+					}
+				],
+				"name": "PartyCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "leader",
+						"type": "address"
+					}
+				],
+				"name": "PartyRegisteredForElection",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "creationTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "symbol",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "leader",
+								"type": "address"
+							},
+							{
+								"internalType": "address[]",
+								"name": "members",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "active",
+								"type": "bool"
+							},
+							{
+								"internalType": "address[]",
+								"name": "supporters",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "registered",
+								"type": "bool"
+							}
+						],
+						"indexed": true,
+						"internalType": "struct Parties.Party",
+						"name": "party",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "time",
+						"type": "uint256"
+					}
+				],
+				"name": "VoteRegistered",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "member",
+						"type": "address"
+					}
+				],
+				"name": "addMemberToParty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "partyId",
+						"type": "uint256"
+					}
+				],
+				"name": "addSupporter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"name": "changePartyStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					}
+				],
+				"name": "createParty",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deleteParty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "partyId",
+						"type": "uint256"
+					}
+				],
+				"name": "getPartyByID",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "creationTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "symbol",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "leader",
+								"type": "address"
+							},
+							{
+								"internalType": "address[]",
+								"name": "members",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "active",
+								"type": "bool"
+							},
+							{
+								"internalType": "address[]",
+								"name": "supporters",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "registered",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Parties.Party",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPartyFromAddress",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "creationTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "symbol",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "leader",
+								"type": "address"
+							},
+							{
+								"internalType": "address[]",
+								"name": "members",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "active",
+								"type": "bool"
+							},
+							{
+								"internalType": "address[]",
+								"name": "supporters",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "registered",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Parties.Party",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPresident",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVoteResults",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastWinner",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "partyName",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "leader",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "votes",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "electionDate",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ElectionsFactory.Winner",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "parties",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "creationTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "leader",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "registered",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "partiesCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "registerPartyToElection",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "regulator",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "retirePartyFromElection",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startNewElection",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newRegulator",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "partyId",
+						"type": "uint256"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"regulator()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Elections.sol": "Elections"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Context.sol": {
+			"keccak256": "0x2d9821ede311a3c16183811be8bdc666e88c69d9d50321e3dff025fe7630d373",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3719bc7fe267a79e84641b88901b10dbc58d27edaea65b7811d39ca7d2a3e409",
+				"dweb:/ipfs/QmRDDpaByM3MhWs61gXmfaxoygifCJhLvguEFDGahhWMfX"
+			]
+		},
+		"contracts/Elections.sol": {
+			"keccak256": "0xb580c5cc8f59a3b17d9b346dd1e61316b49e2e85fee0ff2563d84a2e4cd03ff9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2441422f7de314d7a7682934cc42882f0c7bcb4fc433b107c4bd97f6da636d8d",
+				"dweb:/ipfs/QmPfb1A3yvZFSmn1NdMmh4yt3YKXG4ryomacc8HsUXPAvs"
+			]
+		},
+		"contracts/ElectionsFactory.sol": {
+			"keccak256": "0xf7745c1320af88153576e1d78e13ac5d4ea92f7f0ad64d1cf537ec46e603361f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://125912a01da829c67982e6d8acf3de8e0009b666bc9ce204eda72bb5bd8f7914",
+				"dweb:/ipfs/Qmd3rDNAXu6cawZs1XRCh55AtMsaj52rXzmcTaBMYQ3yMC"
+			]
+		},
+		"contracts/ElectionsHelper.sol": {
+			"keccak256": "0x3cd0e668b952e8a3da525e49d7b2f3f31ec15b80307672f17dbc93f21a6adcc2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://19e1d066ebf9418c951bf5152017998e94149edca8af02bb5dc21712789450bc",
+				"dweb:/ipfs/QmWGshZrbzjCyNfLR4kvXtK9g1MvRkF6VHm1LrXmUGmYry"
+			]
+		},
+		"contracts/Government.sol": {
+			"keccak256": "0xb732913ff83edefce3467bc2aea32326d5e93828e087d82476a74b5b842b8446",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ff306224777522263587412e6ebd8a8098680d5af87d1c5ee5556a9cc9477fc7",
+				"dweb:/ipfs/QmSZawG37iKcqAmeDn5v77LkkACuxLaoJayufvPdbZeHyK"
+			]
+		},
+		"contracts/Parties.sol": {
+			"keccak256": "0xacc39575c7aeef94c4b65e28fbc55603220e7461054e5d4d993efef3002528d7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://462bc715997e2b52760fc9de38dec8b7920232ce299d3d83e395a8e0e1cef39b",
+				"dweb:/ipfs/QmV9sMvNQTCdrcFgXDbbi6js7Ws5yH5vZxdCESefch2SkL"
+			]
+		},
+		"contracts/Regulator.sol": {
+			"keccak256": "0x32e8a3d4561710f6e725cf2b71eddf7e856f1e5515c1413c55671f2c84b8500e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://eddc914eac71b19278c9b42cdf25a55dac10b996cdbd898b3c103df7313bc829",
+				"dweb:/ipfs/QmPwVTwPtyHQCWoq838SSZcDP5nNWC4UWS8xnBmgtVDxsp"
+			]
+		}
+	},
+	"version": 1
+}
